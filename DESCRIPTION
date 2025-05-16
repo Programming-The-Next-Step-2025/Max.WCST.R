@@ -1,0 +1,19 @@
+Package: Max.WCST.R
+Title: Tools for Simulating the Wisconsin Card Sorting Task
+Version: 0.1.0
+Authors@R: 
+    person(given = "Max", 
+           family = "Smecz", 
+           email = "max.smecz@student.uva.nl", 
+           role = c("aut", "cre"))
+Description: Provides simplified tools to simulate, score, and analyze the 
+    Wisconsin Card Sorting Task (WCST), a classic cognitive assessment used to 
+    evaluate executive functioning such as cognitive flexibility and rule-switching. 
+    The package includes functions for generating decks, simulating user sessions, 
+    scoring trials, and analyzing results.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+    stringr
+RoxygenNote: 7.3.2
