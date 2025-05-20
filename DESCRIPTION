@@ -1,7 +1,7 @@
 Package: Max.WCST.R
 Title: Tools for Simulating the Wisconsin Card Sorting Task
 Version: 0.1.0
-Authors@R: 
+Authors@R: CodebyKazy
     person(given = "Max", 
            family = "Smecz", 
            email = "max.smecz@student.uva.nl", 
