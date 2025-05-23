@@ -5,3 +5,4 @@
 .Rproj.user/*
 .Rbuildignore
 .DS_Store
+inst/doc
