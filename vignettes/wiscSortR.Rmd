@@ -1,0 +1,89 @@
+---
+title: "Max.WCST.R - A starter's package"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{wiscSortR}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(Max.WCST.R)
+```
+
+## What is `Max.WCST.R`?
+
+`Max.WCST.R` provides tools to simulate and analyze the Wisconsin Card Sorting Task (WCST), a neuropsychological assessment designed to measure cognitive flexibility, abstract reasoning, and the ability to shift problem-solving strategies in response to changing rules.
+
+The WCST is widely used in both research and clinical settings. It is particularly useful for assessing executive function deficits in individuals with:
+- Schizophrenia
+- Frontal lobe damage
+- ADHD
+- Autism Spectrum Disorder (ASD)
+- Traumatic Brain Injury (TBI)
+- Neurodegenerative disorders (e.g., Parkinson’s disease, dementia)
+
+Performance on the WCST reflects a person's ability to detect and adapt to rule changes — a key component of executive functioning. High perseverative errors (repeating the same incorrect rule) often signal impairments in cognitive control.
+
+The `Max.WCST.R` package enables simplified simulations of this task in R. It allows users to:
+- Generate randomized card decks
+- Run rule-shifting simulations with feedback
+- Analyze session-level performance
+
+This package is ideal for:
+- Teaching executive function concepts
+- Demonstrating rule-switching behavior
+- Prototyping cognitive experiments
+
+Generate a WCST Deck
+You can generate a randomized deck of cards, each with a color, shape, and number:
+
+```{r}
+deck <- generate_wcst_deck(10)
+head(deck)
+```
+
+Simulate a WCST Session
+Run a full WCST session, where the rule changes after 6 consecutive correct answers:
+
+```{r}
+session <- simulate_wcst_session(n_trials = 15)
+head(session)
+```
+Analyze the Results
+Get summary statistics for a session, including accuracy and perseverative errors:
+
+```{r}
+analyze_wcst_results(session)
+```
+
+Full Example Workflow
+
+```{r}
+# Generate and simulate
+deck <- generate_wcst_deck(20)
+session <- simulate_wcst_session(20)
+
+# Print session
+print(session)
+
+# Analyze session
+analyze_wcst_results(session)
+```
+
+Extending wiscSortR
+
+You can expand this package to:
+
+Simulate different user strategies
+
+Track performance over repeated sessions
+
+Export data for experimental use
