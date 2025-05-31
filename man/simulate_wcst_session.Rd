@@ -4,19 +4,50 @@
 \alias{simulate_wcst_session}
 \title{Simulate a WCST session}
 \usage{
-simulate_wcst_session(n_trials = 30, rules = c("color", "shape", "number"))
+simulate_wcst_session(
+  n_trials = 30,
+  rules = c("color", "shape", "number"),
+  deck = NULL,
+  seed = NULL,
+  strategy = c("perfect", "random", "probabilistic", "perseverative"),
+  p_correct = 0.7
+)
 }
 \arguments{
-\item{n_trials}{Number of trials to simulate.}
+\item{n_trials}{Number of trials to simulate (default = 30). First trial is always shown as reference only.}
 
-\item{rules}{Sequence of sorting rules (e.g., c("color", "shape", "number")).}
+\item{rules}{A character vector indicating the sequence of sorting rules (default = c("color", "shape", "number")).}
+
+\item{deck}{Optional pre-generated WCST deck. If NULL, a new deck is generated.}
+
+\item{seed}{Optional seed for reproducibility.}
+
+\item{strategy}{A character string defining the agent strategy. One of:
+\itemize{
+  \item \code{"perfect"}: always selects the correct rule.
+  \item \code{"random"}: chooses randomly between color, shape, number.
+  \item \code{"probabilistic"}: chooses correctly with probability \code{p_correct}.
+  \item \code{"perseverative"}: sticks to the previous rule 60\% of the time.
+}}
+
+\item{p_correct}{Probability of selecting the correct rule when \code{strategy = "probabilistic"} (default = 0.7).}
 }
 \value{
-A data frame with trial-by-trial results.
+A data frame with trial-by-trial results, including:
+  \itemize{
+    \item \code{trial}: the trial number.
+    \item \code{rule}: the correct rule used to score the trial.
+    \item \code{user_choice}: the rule selected by the simulated agent.
+    \item \code{correct}: whether the response was correct.
+  }
 }
 \description{
-Runs a simplified WCST session with rule shifts and feedback.
+Simulates a Wisconsin Card Sorting Task (WCST) session with rule shifts and customizable agent strategies.
+Can be used to simulate different cognitive profiles or behaviors.
 }
 \examples{
-simulate_wcst_session(12)
+simulate_wcst_session(n_trials = 20, strategy = "perfect")
+simulate_wcst_session(n_trials = 20, strategy = "random")
+simulate_wcst_session(n_trials = 20, strategy = "probabilistic", p_correct = 0.8)
+simulate_wcst_session(n_trials = 20, strategy = "perseverative")
 }

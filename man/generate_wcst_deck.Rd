@@ -2,19 +2,21 @@
 % Please edit documentation in R/generate_wcst_deck.R
 \name{generate_wcst_deck}
 \alias{generate_wcst_deck}
-\title{Generate a WCST-style deck}
+\title{Generate a WCST-style deck with rule changes}
 \usage{
 generate_wcst_deck(n_cards = 64)
 }
 \arguments{
-\item{n_cards}{Number of cards to generate.}
+\item{n_cards}{Number of cards to generate (must be ≥ 2).}
 }
 \value{
-A data frame with columns: color, shape, number
+A data frame with columns: color, shape, number, and rule (the feature matched on each trial).
 }
 \description{
-Creates a randomized data frame of cards for use in the Wisconsin Card Sorting Task.
+Creates a data frame of cards for the Wisconsin Card Sorting Task.
+Each card matches the previous on exactly one feature, and the matching rule changes
+every 4 to 8 trials.
 }
 \examples{
-generate_wcst_deck(10)
+generate_wcst_deck(20)
 }

@@ -2,22 +2,16 @@
 % Please edit documentation in R/normalize_response.R
 \name{normalize_response}
 \alias{normalize_response}
-\title{Normalize a WCST user response string}
+\title{Normalize and validate a WCST user response}
 \usage{
 normalize_response(response)
 }
 \arguments{
-\item{response}{A character string representing a user's rule choice (e.g., "Color", " shape ").}
+\item{response}{A character string input from the user.}
 }
 \value{
-A cleaned character string in lowercase with no leading or trailing spaces.
+A cleaned string if valid, or NA if invalid.
 }
 \description{
-This function trims leading and trailing whitespace and converts all characters
-to lowercase. Useful for standardizing user responses before scoring in WCST tasks.
-}
-\examples{
-normalize_response(" Color ")
-normalize_response("  SHAPE")
-normalize_response("number ")
+Normalize and validate a WCST user response
 }
