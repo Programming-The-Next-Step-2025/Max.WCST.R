@@ -7,12 +7,11 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r, include = FALSE}
+```{r, include=FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
-
 library(Max.WCST.R)
 What is Max.WCST.R?
 Max.WCST.R provides tools to simulate and analyze the Wisconsin Card Sorting Task (WCST) — a classic neuropsychological task that measures cognitive flexibility and abstract reasoning.
@@ -45,46 +44,56 @@ Analyze trial-by-trial results and produce a performance summary.
 Export a session PDF report with results and plots.
 
 Generate a WCST Deck
-
-![Deck Example](wcst_deck_example.png.png)
-*Figure 2: Example of a WCST deck showing color, shape, number, and rule.*
-
-deck <- generate_wcst_deck(10)
-head(deck)
 Each card matches the previous on exactly one feature. The matching rule changes every 4–8 correct trials to simulate real cognitive shifting demands.
 
+{r}
+Copy
+Edit
+deck <- generate_wcst_deck(10)
+head(deck)
+
+Figure 1: Example of a WCST deck showing color, shape, number, and rule.
+
 Simulate a WCST Session
-
-![Simulation Output](wcst_simulation_output.png.png)
-*Figure 3: Output from a session showing trial-level results.*
-
-session <- simulate_wcst_session(n_trials = 15)
-head(session)
 This simulates a full user session with feedback and correct/incorrect scoring. Rule changes are embedded dynamically, mimicking a real WCST.
 
+{r}
+Copy
+Edit
+session <- simulate_wcst_session(n_trials = 15)
+head(session)
+
+Figure 2: Output from a session showing trial-level results.
+
 Analyze the Results
-
-![Performance Plot](wcst_analysis_plot.png.png)
-*Figure 4: Trial-by-trial performance plot with rule switch markers.*
-
-analyze_wcst_results(session)
 You’ll receive statistics like total accuracy, number of correct switches, and perseverative errors.
 
+{r}
+Copy
+Edit
+analyze_wcst_results(session)
+
+Figure 3: Trial-by-trial performance plot with rule switch markers.
+
 Visualize the Results
-
+{r}
+Copy
+Edit
 plot_wcst_performance(session)
-A performance plot showing trial accuracy and possible switching behavior over time.
-
 Full Example Workflow
-
+{r}
+Copy
+Edit
 deck <- generate_wcst_deck(20)
 session <- simulate_wcst_session(20)
 analyze_wcst_results(session)
 plot_wcst_performance(session)
-
 Run the Shiny App
 The interactive version of the WCST can be launched with:
 
+{r,
+Copy
+Edit
 run_wcst_app()
 This opens a browser interface where users:
 
@@ -96,7 +105,11 @@ Are tested on rule adaptation
 
 Receive a PDF report at the end with their results
 
-The app uses a hidden rule logic. Users must infer the rule through feedback, just like in the original WCST.
+
+Figure 4: Shiny interface for selecting matching rule.
+
+
+Figure 5: Example PDF summary report.
 
 Extending Max.WCST.R
 Possible extensions:
