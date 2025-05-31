@@ -15,12 +15,8 @@ Perseverative Errors: r params$summary$perseverative_errors
 Total Trials: r params$summary$total_trials
 
 Performance Plot
-{r
-Copy
-Edit
+
 params$plot
 Trial-by-Trial Results
-{r}
-Copy
-Edit
+
 knitr::kable(params$results)
