@@ -10,7 +10,7 @@ analyze_wcst_results(session_df)
 \item{session_df}{A data frame from \code{simulate_wcst_session()}}
 }
 \value{
-A list with performance metrics: total trials, accuracy, perseverative errors.
+A list with performance metrics: total trials, accuracy, number of correct trials, number of rule shifts, perseverative errors.
 }
 \description{
 Summarizes performance from a WCST session simulation.

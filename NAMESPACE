@@ -2,6 +2,8 @@
 
 export(analyze_wcst_results)
 export(generate_wcst_deck)
+export(launch_wcst_app)
 export(normalize_response)
+export(plot_wcst_performance)
+export(score_wcst_trial)
 export(simulate_wcst_session)
-export(wcst_trial)
