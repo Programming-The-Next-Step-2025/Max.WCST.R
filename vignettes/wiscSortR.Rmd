@@ -13,115 +13,105 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 library(Max.WCST.R)
-What is Max.WCST.R?
+```
+
+## What is Max.WCST.R?
+
 Max.WCST.R provides tools to simulate and analyze the Wisconsin Card Sorting Task (WCST) — a classic neuropsychological task that measures cognitive flexibility and abstract reasoning.
 
 This task is especially relevant for detecting executive dysfunctions in conditions such as:
 
-Schizophrenia
+- Schizophrenia  
+- Frontal lobe damage  
+- ADHD  
+- Autism Spectrum Disorder (ASD)  
+- Traumatic Brain Injury (TBI)  
+- Neurodegenerative disorders (e.g., Parkinson’s, dementia)
 
-Frontal lobe damage
+In WCST, users must discover the sorting rule (color, shape, or number), adapt to rule changes, and avoid perseverative errors. This package implements a simulation framework for this logic.
 
-ADHD
+## Key Features
 
-Autism Spectrum Disorder (ASD)
+- Generate realistic WCST decks with randomized rule shifts  
+- Run interactive sessions using a Shiny interface  
+- Automatically track accuracy, rule inference, and error types  
+- Analyze trial-by-trial results  
+- Export a PDF report of session performance  
 
-Traumatic Brain Injury (TBI)
+## Generate a WCST Deck
 
-Neurodegenerative disorders (e.g., Parkinson’s, dementia)
-
-In WCST, users must discover the sorting rule (color, shape, or number), adapt to rule changes, and avoid perseverative errors (repeating an old rule after it stops working). This package implements a full simulation framework for this logic.
-
-Key Features
-Generate realistic WCST decks with randomized rule shifts.
-
-Run full interactive sessions using a Shiny interface.
-
-Automatically track accuracy, rule inference, and error types.
-
-Analyze trial-by-trial results and produce a performance summary.
-
-Export a session PDF report with results and plots.
-
-Generate a WCST Deck
-Each card matches the previous on exactly one feature. The matching rule changes every 4–8 correct trials to simulate real cognitive shifting demands.
-
-{r}
-Copy
-Edit
+```{r}
 deck <- generate_wcst_deck(10)
 head(deck)
+```
 
-Figure 1: Example of a WCST deck showing color, shape, number, and rule.
+![Deck Example](wcst_deck_example.png.png)  
+*Figure 1: Example of a WCST deck showing color, shape, number, and rule.*
 
-Simulate a WCST Session
-This simulates a full user session with feedback and correct/incorrect scoring. Rule changes are embedded dynamically, mimicking a real WCST.
+## Simulate a WCST Session
 
-{r}
-Copy
-Edit
+```{r}
 session <- simulate_wcst_session(n_trials = 15)
 head(session)
+```
 
-Figure 2: Output from a session showing trial-level results.
+![Simulation Output](wcst_simulation_output.png.png)  
+*Figure 2: Output from a simulated session.*
 
-Analyze the Results
-You’ll receive statistics like total accuracy, number of correct switches, and perseverative errors.
+## Analyze the Results
 
-{r}
-Copy
-Edit
+```{r}
 analyze_wcst_results(session)
+```
 
-Figure 3: Trial-by-trial performance plot with rule switch markers.
+![Performance Plot](wcst_analysis_plot.png.png)  
+*Figure 3: Trial-by-trial performance plot with rule switch markers.*
 
-Visualize the Results
-{r}
-Copy
-Edit
+## Visualize the Results
+
+```{r}
 plot_wcst_performance(session)
-Full Example Workflow
-{r}
-Copy
-Edit
+```
+
+## Full Example Workflow
+
+```{r}
 deck <- generate_wcst_deck(20)
 session <- simulate_wcst_session(20)
 analyze_wcst_results(session)
 plot_wcst_performance(session)
-Run the Shiny App
-The interactive version of the WCST can be launched with:
+```
 
-{r,
-Copy
-Edit
+## Run the Shiny App
+
+```{r eval=FALSE}
 run_wcst_app()
+```
+
 This opens a browser interface where users:
 
-Select the rule they believe is correct (color/shape/number)
+- Select the rule they believe is correct (color/shape/number)  
+- Get real-time feedback  
+- Are tested on rule adaptation  
+- Receive a PDF report at the end with their results  
 
-Get real-time feedback
+![Shiny Interface](wcst_shiny_trial.png.png)  
+*Figure 4: Shiny interface for selecting a rule.*
 
-Are tested on rule adaptation
+![PDF Report](wcst_report_example.png.png)  
+*Figure 5: Example PDF summary report.*
 
-Receive a PDF report at the end with their results
+## Extending Max.WCST.R
 
-
-Figure 4: Shiny interface for selecting matching rule.
-
-
-Figure 5: Example PDF summary report.
-
-Extending Max.WCST.R
 Possible extensions:
 
-Simulate different user profiles (e.g., guessing, random, perseverative)
+- Simulate different user profiles (e.g., random, perseverative, guessing)  
+- Add longitudinal testing support  
+- Connect to experimental data collection platforms  
+- Customize scoring or rule-switching thresholds  
 
-Add longitudinal testing support
+## Citation
 
-Connect to experimental data collection platforms
+To cite this package:
 
-Customize scoring or rule-switching thresholds
-
-Citation
-To cite this package in publications, use:
-Max.WCST.R: Wisconsin Card Sorting Task Simulation and Analysis in R. Version 0.1.0.
+**Max.WCST.R**: Wisconsin Card Sorting Task Simulation and Analysis in R. Version 0.1.0.

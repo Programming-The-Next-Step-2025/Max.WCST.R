@@ -22,15 +22,8 @@ Imports:
     ggplot2,
     rmarkdown
 RoxygenNote: 7.3.2
-<<<<<<< Updated upstream
-=======
 Suggests: 
     knitr,
     testthat,
     rmarkdown
 VignetteBuilder: knitr
-
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
